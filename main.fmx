@@ -1,0 +1,131 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  Caption = 'Form1'
+  ClientHeight = 567
+  ClientWidth = 384
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  OnResize = FormResize
+  DesignerMobile = True
+  DesignerWidth = 384
+  DesignerHeight = 592
+  DesignerDeviceName = 'Google Nexus 4'
+  DesignerOrientation = 0
+  DesignerOSVersion = ''
+  object Label1: TLabel
+    Align = Top
+    Height = 33.000000000000000000
+    StyleLookup = 'toollabel'
+    TextSettings.HorzAlign = Center
+    Text = 'Back'#39'N'#39'Front'
+    Width = 384.000000000000000000
+  end
+  object Layout1: TLayout
+    Align = Bottom
+    Height = 135.000000000000000000
+    Position.Y = 432.000000000000000000
+    Width = 384.000000000000000000
+    TabOrder = 1
+    object imgPhoto: TImage
+      MultiResBitmap = <
+        item
+        end>
+      Align = Client
+      Height = 135.000000000000000000
+      Width = 384.000000000000000000
+      WrapMode = Stretch
+    end
+    object btnSharePhoto: TSpeedButton
+      Action = ShowShareSheetAction1
+      Anchors = [akRight, akBottom]
+      Height = 48.000000000000000000
+      IconTintColor = claYellowgreen
+      Position.X = 329.000000000000000000
+      Position.Y = 79.000000000000000000
+      StyleLookup = 'actiontoolbutton'
+      Width = 48.000000000000000000
+    end
+  end
+  object Layout2: TLayout
+    Align = Client
+    Height = 399.000000000000000000
+    Width = 384.000000000000000000
+    TabOrder = 2
+    object Layout3: TLayout
+      Align = Left
+      Height = 399.000000000000000000
+      Width = 121.000000000000000000
+      TabOrder = 0
+      object imgBack: TImage
+        MultiResBitmap = <
+          item
+          end>
+        Align = Client
+        Height = 399.000000000000000000
+        Width = 121.000000000000000000
+        WrapMode = Stretch
+        OnClick = SwitchCamera
+      end
+      object btnTakeBack: TSpeedButton
+        Anchors = [akRight, akBottom]
+        Height = 48.000000000000000000
+        IconTintColor = claYellowgreen
+        Position.X = 65.000000000000000000
+        Position.Y = 344.000000000000000000
+        StyleLookup = 'cameratoolbutton'
+        Text = 'SpeedButton1'
+        Width = 48.000000000000000000
+        OnClick = TakePhoto
+      end
+    end
+    object Layout4: TLayout
+      Align = Client
+      Height = 399.000000000000000000
+      Width = 263.000000000000000000
+      TabOrder = 1
+      object imgFront: TImage
+        MultiResBitmap = <
+          item
+          end>
+        Align = Client
+        Height = 399.000000000000000000
+        Width = 263.000000000000000000
+        WrapMode = Stretch
+        OnClick = SwitchCamera
+      end
+      object btnTakeFront: TSpeedButton
+        Anchors = [akRight, akBottom]
+        Height = 48.000000000000000000
+        IconTintColor = claYellowgreen
+        Position.X = 208.000000000000000000
+        Position.Y = 344.000000000000000000
+        StyleLookup = 'cameratoolbutton'
+        Text = 'btnTakeFront'
+        Width = 48.000000000000000000
+        OnClick = TakePhoto
+      end
+    end
+  end
+  object CameraBack: TCameraComponent
+    Kind = BackCamera
+    OnSampleBufferReady = CameraBackSampleBufferReady
+    Left = 80
+    Top = 193
+  end
+  object CameraFront: TCameraComponent
+    Kind = FrontCamera
+    OnSampleBufferReady = CameraFrontSampleBufferReady
+    Left = 249
+    Top = 193
+  end
+  object ActionList1: TActionList
+    Left = 169
+    Top = 249
+    object ShowShareSheetAction1: TShowShareSheetAction
+      OnBeforeExecute = ShowShareSheetAction1BeforeExecute
+    end
+  end
+end
